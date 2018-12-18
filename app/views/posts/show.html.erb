@@ -14,11 +14,14 @@
   <strong>Email:</strong>
   <%= @post.user.email %>
 </p>
-<% @post.songs.each do |music| %>
- <EMBED SRC="<%= music.url %>"
-    width="360" height="165" HIDDEN=false AUTOSTART=true loop="false" volume="60">
+<% @post.songs.each do |music| %><br>
+<audio controls>
+  
+  <source src="<%= music.url %>" type="audio/mpeg">
+  Your browser does not support the audio tag.
+</audio>
 <% end %>
-
+<br>
 <%= link_to 'Back', :back %>
 <% if user_signed_in? && @post.user_id == current_user.id %>
 <%= link_to 'Edit', edit_post_path(@post) %> |

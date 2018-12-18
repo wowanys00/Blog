@@ -20,8 +20,13 @@
   <source src="<%= music.url %>" type="audio/mpeg">
   Your browser does not support the audio tag.
 </audio>
+<video width="320" height="240" controls>
+  <source src="<%=music.url %>" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 <% end %>
 <br>
+
 <%= link_to 'Back', :back %>
 <% if user_signed_in? && @post.user_id == current_user.id %>
 <%= link_to 'Edit', edit_post_path(@post) %> |

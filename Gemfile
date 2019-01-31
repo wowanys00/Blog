@@ -28,7 +28,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
 gem 'carrierwave', '~> 1.0'
-
+gem "paperclip", "~> 6.0.0"
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

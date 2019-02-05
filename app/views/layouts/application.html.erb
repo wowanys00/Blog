@@ -13,6 +13,13 @@
 
   <body>
    <% if user_signed_in? %>
+   <% if current_user.userparam.nil? %>
+  <%= link_to "Профіль", new_userparam_path%>
+<% else %>
+  <%= link_to userparam_path(current_user.id) do%>
+    <%= current_user.email.split('@').first %>'s profile
+  <%end%>
+<%end%>
   <%= link_to "Home", root_path %> |
    <%= link_to "Add new post(MUSIC)",  new_post_path %>|
   <%= link_to "Logout",  destroy_user_session_path, method: :delete %>
@@ -20,13 +27,7 @@
    <%= link_to "Login", new_user_session_path %>
 <% end %>
 
-<% if current_user.userparam.nil? %>
-  <%= link_to "Профіль", new_userparam_path%>
-<% else %>
-  <%= link_to userparam_path(current_user.id) do%>
-    <%= current_user.email.split('@').first %>'s profile
-  <%end%>
-<%end%>
+
 
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
